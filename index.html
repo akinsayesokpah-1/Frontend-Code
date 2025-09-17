@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SocialApp (Backend Enabled)</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">SocialApp</div>
+    <div class="search">
+      <input id="searchInput" placeholder="Search users or posts..." />
+    </div>
+    <div class="auth" id="authArea"></div>
+  </header>
+
+  <main class="container">
+    <aside class="leftcol">
+      <div class="profile-card" id="profileCard"></div>
+
+      <div class="suggestions card">
+        <h3>People you may know</h3>
+        <ul id="suggestList"></ul>
+      </div>
+
+      <div class="info card">
+        <h4>Prototype notes</h4>
+        <p>This version uses a local Node/Express backend (SQLite). Tokens stored in localStorage.</p>
+      </div>
+    </aside>
+
+    <section class="feed">
+      <div class="composer card" id="composer">
+        <textarea id="postText" rows="3" placeholder="What's happening?"></textarea>
+        <input id="postImage" placeholder="Optional image URL" />
+        <div class="composer-actions">
+          <button id="postBtn" class="btn primary">Post</button>
+          <button id="clearBtn" class="btn">Clear</button>
+        </div>
+      </div>
+
+      <div id="feedList"></div>
+    </section>
+
+    <aside class="rightcol">
+      <div class="trending card">
+        <h3>Trending</h3>
+        <ul id="trendingList"></ul>
+      </div>
+
+      <div class="card">
+        <h3>Create account</h3>
+        <input id="newUserName" placeholder="username" />
+        <input id="newDisplayName" placeholder="display name" />
+        <input id="newPassword" placeholder="password" type="password" />
+        <button id="createUserBtn" class="btn">Create</button>
+      </div>
+
+      <div class="card">
+        <h3>Direct Messages</h3>
+        <div id="dmList"></div>
+      </div>
+
+      <div class="card">
+        <h3>Notifications</h3>
+        <ul id="notifList"></ul>
+      </div>
+    </aside>
+  </main>
+
+  <template id="postTemplate">
+    <article class="post card">
+      <div class="post-header">
+        <div class="avatar"></div>
+        <div class="meta">
+          <div class="display"></div>
+          <div class="username"></div>
+        </div>
+      </div>
+      <div class="post-body">
+        <p class="text"></p>
+        <img class="photo" src="" alt="" />
+      </div>
+      <div class="post-actions">
+        <button class="like btn">Like <span class="like-count">0</span></button>
+        <button class="comment-toggle btn">Comments <span class="comment-count">0</span></button>
+        <button class="follow btn">Follow</button>
+      </div>
+      <div class="comments" style="display:none;">
+        <div class="comment-list"></div>
+        <div class="comment-box">
+          <input class="comment-input" placeholder="Write a comment..." />
+          <button class="comment-btn btn">Send</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
